@@ -2,7 +2,7 @@
   "name": "mb-sui",
   "version": "0.0.2",
   "description": "mobile ui",
-  "main": "./dist/main.js",
+  "main": "dist/main.js",
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.dev.js",
     "build": "webpack --config webpack.config.prod.js",

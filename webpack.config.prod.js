@@ -3,7 +3,7 @@ const baseConfig = require('./webpack.config');
 
 module.exports = Object.assign({}, baseConfig, {
     mode: 'production',
-    entry: './components/index.ts',
+    entry: './index.ts',
     externals: {  // 不属于内部的库, 外部的
         react: {
             commonjs: 'react',
