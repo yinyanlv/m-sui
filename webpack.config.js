@@ -2,7 +2,7 @@ const path = require('path');
 
 
 module.exports = {
-    entry: './components/index.tsx',
+    entry: './index.tsx',
     output: {
         path: path.resolve(__dirname, 'dist'),
         library: 'm-sui',
@@ -16,6 +16,14 @@ module.exports = {
             {
                 test: /\.tsx?$/,
                 loader: 'ts-loader'
+            }, 
+            {
+                test: /\.s[ca]ss$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader'
+                ]
             }
         ]
     }

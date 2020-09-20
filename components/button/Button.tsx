@@ -1,9 +1,10 @@
 import React from 'react';
+import style from  './Button.module.scss';
 
-export function Button() {
+function Button() {
     return (
-        <div>
-        这是按钮
-        </div>
+        <div className={style.button}>这是按钮</div>
     );
 }
+
+export default React.memo(Button);
