@@ -2,7 +2,7 @@
   "name": "m-sui",
   "version": "0.0.1",
   "description": "mobile ui",
-  "main": "./components/index.tsx",
+  "main": "./index.tsx",
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.dev.js",
     "build": "webpack --config webpack.config.prod.js",
@@ -48,5 +48,8 @@
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
+  },
+  "directories": {
+    "test": "test"
   }
 }
