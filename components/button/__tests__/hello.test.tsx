@@ -4,6 +4,7 @@ return a + b
 
 describe('Test', () => {
   it('sum', () => {
+    console.log(global.document);
     expect(sum(1, 2)).toEqual(3)
   });
 });

@@ -11,9 +11,9 @@ module.exports = {
             "<rootDir>/test/__mocks__/file-mock.js",
         "\\.(css|less|sass|scss)$": "<rootDir>/test/__mocks__/object-mock.js"
     },
-    testMatch: ["<rootDir>/**/__tests__/**/*.unit.(js|jsx|ts|tsx)"],
+    testMatch: ["<rootDir>/**/__tests__/**/*.test.(js|jsx|ts|tsx)"],
     transform: {
-        "^.+unit\\.(js|jsx)$": "babel-jest",
+        "^.+test\\.(js|jsx)$": "babel-jest",
         "^.+\\.(ts|tsx)$": "ts-jest"
     },
     setupFilesAfterEnv: ["<rootDir>test/setupTests.js"]
