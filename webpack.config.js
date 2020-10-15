@@ -24,6 +24,10 @@ module.exports = {
                     'css-loader',
                     'sass-loader'
                 ]
+            }, 
+            {
+                test: /(\.svg|\.ttf|\.eot|\.woff)$/,
+                loader: 'file-loader'
             }
         ]
     }

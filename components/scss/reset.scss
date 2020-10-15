@@ -1,0 +1,78 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+section {
+  display: block;
+}
+
+ul,dl {
+  list-style:none;
+}
+
+input {
+    outline: none;
+}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: $placeholder-font-color !important;
+  font-size: 1.3rem;
+}
+
+input:-moz-placeholder, textarea:-moz-placeholder {
+  color: $placeholder-font-color !important;
+  font-size: 1.3rem;
+}
+
+input::-moz-placeholder, textarea::-moz-placeholder {
+  color: $placeholder-font-color !important;
+  font-size: 1.3rem;
+}
+
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  color: $placeholder-font-color !important;
+  font-size: 1.3rem;
+}
+
+// 去掉默认的搜索小图标
+input[type="search"]::-webkit-search-decoration {
+  display: none;
+}
+
+// 去掉默认的x
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+
+// 去掉ios下的圆角
+input[type="search"] {
+  -webkit-appearance: none;
+}
+
+html {
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  text-size-adjust: none;
+  -webkit-overflow-scrolling: touch;
+  font-size: 10px;
+}
+
+body {
+  font-family: 'Microsoft Yahei', Arial, STHeiti, sans-serif !important;
+  font-size: 1.3rem;
+  background: $body-bg-color !important;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, .2);
+}
+
+@media only screen and(min-width: 750px) {
+  html {
+    font-size: 10px !important;
+  }
+}

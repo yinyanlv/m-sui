@@ -1,5 +1,28 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
-import {Button} from  './components/button';
+import style from './App.module.scss';
+import {Button, Search} from  './components';
 
-ReactDOM.render(<Button></Button>, document.body);
+function App() {
+    return (
+        <section className={style.app}>
+            <div className='component'>
+                <h3>按钮</h3>
+                <div>
+                    <Button/>
+                </div>
+            </div>
+            <div className='component'>
+                <h3>搜索框</h3>
+                <div>
+                    <Search placeholder="请输入" onSearch={(val: any) => {
+                        console.log(val);
+                    }}/>
+                </div>
+            </div>
+
+        </section>
+    );
+}
+
+ReactDOM.render(<App/>, document.body);
