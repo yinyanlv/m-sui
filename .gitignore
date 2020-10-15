@@ -3,7 +3,8 @@
 .DS_Store
 .idea/
 
-coverage/
-
 node_modules/
+
+coverage/
+dist/
 
