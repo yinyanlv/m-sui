@@ -1,2 +1,6 @@
-## webpack加载svg等外部文件
-file-loader
+## 需配置webpack加载字体、svg等外部文件
+npm i file-loader -D
+
+## jest测试时，导入scss报错
+配置jest.config.js的moduleNameMapper字段，并创建相关模拟文件styleMock.js、fileMock.js
+https://jestjs.io/docs/en/webpack 

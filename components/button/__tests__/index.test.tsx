@@ -1,10 +1,11 @@
-function sum(a: number, b: number): number {
-  return a + b
-}
+import React from 'react';
+import {mount} from 'enzyme';
+import {Button} from '..';
 
-describe('Test', () => {
-  it('sum', () => {
-    console.log(global.document);
-    expect(sum(1, 2)).toEqual(3)
+
+describe('Button', () => {
+  it('should render', () => {
+    const btn = mount(<Button/>);
+    expect(btn.render()).toMatchSnapshot();
   });
 });
