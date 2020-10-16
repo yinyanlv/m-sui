@@ -14,7 +14,7 @@ interface SearchProps {
 function Search(props: SearchProps, parentRef: RefObject<unknown>) {
     const inputRef: any = useRef();
     const [isShowSearchBtn, setIsShowSearchBtn] = useState(false);
-    const debouceTime: number = props.debounceTime || 300;
+    const debounceTime: number = props.debounceTime || 300;
 
     const handleFocus = useCallback(() => {
         setIsShowSearchBtn(true);
@@ -54,7 +54,7 @@ function Search(props: SearchProps, parentRef: RefObject<unknown>) {
             const val = inputRef.current.value.trim();
             props.onChange(val);
         }
-    }, debouceTime), [props.onChange]);
+    }, debounceTime), [props.onChange]);
 
     useImperativeHandle(parentRef, () => {
         return {
