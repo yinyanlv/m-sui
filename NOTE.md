@@ -7,3 +7,6 @@ https://jestjs.io/docs/en/webpack
 
 ## vscode支持css module正确点击跳转需安装插件
 clinyong.vscode-css-modules
+
+## jest使用toMatchInlineSnapshot需安装prettier
+npm i prettier -D

@@ -1,6 +1,6 @@
 export function debounce(fn: any, time: number): (...args: any[]) => any {
 
-    let timer: NodeJS.Timeout;
+    let timer: ReturnType<typeof setTimeout>;
 
     return (...args: any[]): any => {
        
