@@ -1,13 +1,14 @@
 {
   "name": "mb-sui",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "mobile ui",
   "main": "dist/main.js",
   "typings": "dist/index.d.ts",
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.dev.js",
     "build": "webpack --config webpack.config.prod.js",
-    "test": "jest --config=jest.config.js"
+    "test": "jest --config=jest.config.js",
+    "install": "npm run build"
   },
   "repository": {
     "type": "git",
