@@ -1,6 +1,6 @@
 {
   "name": "mb-sui",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "mobile ui",
   "main": "dist/main.js",
   "typings": "dist/index.d.ts",
@@ -45,7 +45,9 @@
     "file-loader": "^6.1.1",
     "html-webpack-plugin": "^4.4.1",
     "jest": "^26.4.2",
+    "mini-css-extract-plugin": "^1.0.0",
     "node-sass": "^4.14.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
     "prettier": "^2.1.2",
     "react-test-renderer": "^16.13.1",
     "sass-loader": "^10.0.2",

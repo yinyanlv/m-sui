@@ -10,3 +10,9 @@ clinyong.vscode-css-modules
 
 ## jest使用toMatchInlineSnapshot需安装prettier
 npm i prettier -D
+
+## mini-css-extract-plugin
+将css抽取为单独的css文件，否则会将css一起打包到js文件中
+
+## optimize-css-assets-webpack-plugin
+优化并压缩css文件，并解决重复导入的问题。当通过webpack配置文件的optimization.minimizer字段使用该插件时，必须在optimization.minimizer字段同时指定js压缩插件（如：terser-webpack-plugin），否则，webpack不再默认对js文件进行压缩

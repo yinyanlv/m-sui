@@ -9,7 +9,7 @@ function App() {
             <div className='component'>
                 <h3>按钮</h3>
                 <div>
-                    <Button/>
+                    <Button>按钮</Button>
                 </div>
             </div>
             <div className='component'>
@@ -20,7 +20,6 @@ function App() {
                     }}/>
                 </div>
             </div>
-
         </section>
     );
 }

@@ -1,4 +1,5 @@
 const baseConfig = require('./webpack.config');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 
 module.exports = Object.assign({}, baseConfig, {
@@ -17,5 +18,16 @@ module.exports = Object.assign({}, baseConfig, {
             amd: 'react',
             root: 'React',
         }
-    }
+    },
+    plugins: [
+        ...baseConfig.plugins,
+        new OptimizeCSSAssetsPlugin({
+            assetNameRegExp: /\.css$/g,
+            cssProcessor: require('cssnano'),
+            cssProcessorPluginOptions: {
+                preset: ['default', { discardComments: { removeAll: true } }],
+            },
+            canPrint: true
+        })
+    ]
 });
