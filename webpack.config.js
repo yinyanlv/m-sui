@@ -9,7 +9,7 @@ module.exports = {
         library: 'm-sui',
         libraryTarget: 'umd'
     },
-    resolve: {  // 配置imoprt导入
+    resolve: {  // 配置import导入
         extensions: ['.js', '.jsx', '.ts', '.tsx']
     },
     module: {
