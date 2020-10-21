@@ -1,23 +1,31 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
 import style from './App.module.scss';
-import {Button, Search} from  './components';
+import {Button, Search, TabSelector} from  './components';
 
 function App() {
     return (
         <section className={style.app}>
-            <div className='component'>
-                <h3>按钮</h3>
+            <div className="component">
+                <h3>Button</h3>
                 <div>
                     <Button>按钮</Button>
                 </div>
             </div>
-            <div className='component'>
-                <h3>搜索框</h3>
+            <div className="component">
+                <h3>Search</h3>
                 <div>
                     <Search placeholder="请输入" onSearch={(val: any) => {
                         console.log(val);
                     }}/>
+                </div>
+            </div>
+            <div className="component">
+                <h3>TabSelector</h3>
+                <div style={{
+                    height: '25rem'
+                }}>
+                    <TabSelector list={[{code: 1, name: 2, children: [{code:2, name: '1'}]}]}/>
                 </div>
             </div>
         </section>
