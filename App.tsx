@@ -1,15 +1,29 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
 import style from './App.module.scss';
-import {Button, Search, TabSelector} from  './components';
+import {Button, Search, TabSelector, Dialog} from  './components';
 
 function App() {
+
+    function showDialog() {
+
+        const dialog = Dialog.alert({
+            content: '???',
+            onClickCancel: () => {
+                console.log('click cancel');
+            },
+            onClickConfirm: () => {
+                console.log('click confirm');
+            }
+        });
+    }
+
     return (
         <section className={style.app}>
             <div className="component">
                 <h3>Button</h3>
                 <div>
-                    <Button>按钮</Button>
+                    <Button onClick={showDialog}>按钮</Button>
                 </div>
             </div>
             <div className="component">
