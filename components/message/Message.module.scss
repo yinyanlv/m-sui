@@ -41,3 +41,15 @@
     }
 
 }
+
+:global {
+
+    .opacity {
+        opacity: 0;
+        transition: all .3s ease-in-out;
+    }
+
+    .opacity-active{
+        opacity: 1;
+    } 
+}

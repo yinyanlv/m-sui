@@ -75,7 +75,6 @@ export class Dialog {
         this.hide();
     };
 
-
     private getDialog(): React.ReactElement {
         const self = this;
         const title = this.config.title || '提示';
@@ -83,7 +82,7 @@ export class Dialog {
         const confirmText = this.config.confirmBtnText || '确认';
 
         return (
-            <div className={style.dialog} onClick={self.handleClickDialogBg}>
+            <div className={style.dialog} onClick={self.handleClickDialogBg} id="abc">
                 <div className="dialog-box" onClick={stopPropagation}>
                     <div className="dialog-header">{title}</div>
                     <div className="dialog-content">{self.config.content}</div>

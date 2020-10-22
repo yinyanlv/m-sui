@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/yinyanlv/m-sui#readme",
   "dependencies": {
+    "@ant-design/css-animation": "^1.7.3",
     "axios": "^0.20.0",
     "classnames": "^2.2.6",
     "m-tis-icons": "0.0.12",

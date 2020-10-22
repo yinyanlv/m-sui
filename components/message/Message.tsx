@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM, { unmountComponentAtNode } from 'react-dom';
+import animate from '@ant-design/css-animation';
 import style from './Message.module.scss';
 
 interface MessageConfig {
@@ -7,7 +8,6 @@ interface MessageConfig {
     type?: 'info' | 'warn' | 'error' | 'success';
     message?: string | number;
 }
-
 
 export class Message {
 
@@ -34,6 +34,7 @@ export class Message {
         message.show();
         return message;
     }
+
     static error(msg: string, time: number = 2000) {
         const message = new Message({
             type: 'error',
@@ -63,9 +64,12 @@ export class Message {
         document.body.appendChild(this.$node);
         ReactDOM.render(this.getMessage(), this.$node);
 
+        animate(document.getElementById('abc'), 'opacity', () => {
+        });
+
         this.timerId = setTimeout(() => {
-            document.body.removeChild(this.$node);
-            unmountComponentAtNode(this.$node);
+            // document.body.removeChild(this.$node);
+            // unmountComponentAtNode(this.$node);
         }, this.config.time);
     }
 
@@ -78,7 +82,7 @@ export class Message {
     getMessage(): React.ReactElement {
 
         return (
-            <div className={style.message}>
+            <div className={style.message} id="abc">
                 <i className={this.getIconClass()} />
                 {this.config.message}
             </div>
