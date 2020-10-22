@@ -14,6 +14,7 @@ export class Message {
     private $node: HTMLElement;
     private config: MessageConfig;
     private timerId: number;
+    private messageId: string;
 
     static info(msg: string, time: number = 2000) {
         const message = new Message({
@@ -58,19 +59,22 @@ export class Message {
     constructor(config: MessageConfig) {
         this.config = config;
         this.$node = document.createElement('div');
+        this.messageId = `msg-${Date.now()}`;
     }
 
     show(): void {
         document.body.appendChild(this.$node);
         ReactDOM.render(this.getMessage(), this.$node);
+        const $msgNode = document.getElementById(this.messageId);
 
-        animate(document.getElementById('abc'), 'opacity', () => {
+        animate($msgNode, 'enter', () => {
+            this.timerId = setTimeout(() => {
+                animate($msgNode, 'leave', () => {
+                    document.body.removeChild(this.$node);
+                    unmountComponentAtNode(this.$node);
+                });
+            }, this.config.time);
         });
-
-        this.timerId = setTimeout(() => {
-            // document.body.removeChild(this.$node);
-            // unmountComponentAtNode(this.$node);
-        }, this.config.time);
     }
 
     hide(): void {
@@ -82,9 +86,11 @@ export class Message {
     getMessage(): React.ReactElement {
 
         return (
-            <div className={style.message} id="abc">
-                <i className={this.getIconClass()} />
-                {this.config.message}
+            <div className={style.message}>
+                <div className="content opacity" id={this.messageId}>
+                    <i className={this.getIconClass()} />
+                    {this.config.message}
+                </div>
             </div>
         );
     }
