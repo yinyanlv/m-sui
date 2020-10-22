@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM, { unmountComponentAtNode } from 'react-dom';
+import style from './Dialog.module.scss';
+import { stopPropagation } from '../common';
 
 interface DialogConfig {
     mode?: 'alert' | 'confirm';
@@ -7,6 +9,8 @@ interface DialogConfig {
     content: string | number | React.ReactNode;
     onClickCancel?: () => void;
     onClickConfirm?: () => void;
+    cancelBtnText?: string;
+    confirmBtnText?: string;
 }
 
 export class Dialog {
@@ -62,24 +66,35 @@ export class Dialog {
         this.hide();
     };
 
-    private getDialog(): React.ReactElement{
+    private handleClickDialogBg = (e: React.MouseEvent):void => {
+        e.stopPropagation();
+        this.hide();
+    };
+
+
+    private getDialog(): React.ReactElement {
         const self = this;
+        const title = this.config.title || '提示';
+        const cancelText = this.config.cancelBtnText || '取消';
+        const confirmText = this.config.confirmBtnText || '确认';
 
         return (
-            <div>
-                <div>{self.config.title}</div>
-                <div>{self.config.content}</div>
-                <div>
-                    {
-                        self.config.mode === 'confirm' ? (
-                            <>
-                                <span onClick={self.handleClickCancel}>取消</span>
-                                <span onClick={self.handleClickConfirm}>确定</span>
-                            </>
-                        ) : (
-                                <span onClick={self.handleClickConfirm}>确定</span>
-                            )
-                    }
+            <div className={style.dialog} onClick={self.handleClickDialogBg}>
+                <div className="dialog-box" onClick={stopPropagation}>
+                    <div className="dialog-header">{title}</div>
+                    <div className="dialog-content">{self.config.content}</div>
+                    <div className="dialog-footer">
+                        {
+                            self.config.mode === 'confirm' ? (
+                                <>
+                                    <span className="btn" onClick={self.handleClickCancel}>{cancelText}</span>
+                                    <span className="btn" onClick={self.handleClickConfirm}>{confirmText}</span>
+                                </>
+                            ) : (
+                                    <span className="btn" onClick={self.handleClickConfirm}>{confirmText}</span>
+                                )
+                        }
+                    </div>
                 </div>
             </div>
         );

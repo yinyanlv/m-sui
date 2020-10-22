@@ -13,3 +13,8 @@ export function debounce(fn: any, time: number): (...args: any[]) => any {
         }, time);
     };
 }
+
+
+export function stopPropagation(e: React.MouseEvent) {
+    e.stopPropagation();
+}
