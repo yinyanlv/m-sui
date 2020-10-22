@@ -1,19 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
 import style from './App.module.scss';
-import {Button, Search, TabSelector, Dialog} from  './components';
+import { Button, Search, TabSelector, Dialog, Message } from './components';
 
 function App() {
 
     function showDialog() {
 
-        const dialog = Dialog.alert({
+        const dialog = Dialog.confirm({
             content: '???',
             onClickCancel: () => {
-                console.log('click cancel');
+                Message.error('click cancel');
             },
             onClickConfirm: () => {
-                console.log('click confirm');
+                Message.success('click confirm');
             }
         });
     }
@@ -31,7 +31,7 @@ function App() {
                 <div>
                     <Search placeholder="请输入" onSearch={(val: any) => {
                         console.log(val);
-                    }}/>
+                    }} />
                 </div>
             </div>
             <div className="component">
@@ -39,11 +39,11 @@ function App() {
                 <div style={{
                     height: '25rem'
                 }}>
-                    <TabSelector list={[{code: 1, name: 2, children: [{code:2, name: '1'}]}]}/>
+                    <TabSelector list={[{ code: 1, name: 2, children: [{ code: 2, name: '1' }] }]} />
                 </div>
             </div>
         </section>
     );
 }
 
-ReactDOM.render(<App/>, document.body);
+ReactDOM.render(<App />, document.body);

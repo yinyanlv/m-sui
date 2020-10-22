@@ -4,7 +4,7 @@ import style from './Dialog.module.scss';
 import { stopPropagation } from '../common';
 
 interface DialogConfig {
-    mode?: 'alert' | 'confirm';
+    type?: 'alert' | 'confirm';
     title?: string | number | React.ReactNode;
     content: string | number | React.ReactNode;
     onClickCancel?: () => void;
@@ -19,13 +19,17 @@ export class Dialog {
     private isShowed: boolean;
 
     static alert(config: DialogConfig) {
-        const dialog = new Dialog(config);
+        const dialog = new Dialog(Object.assign(config, {
+            type: 'alert'
+        }));
         dialog.show();
         return dialog;
     }
 
     static confirm(config: DialogConfig) {
-        const dialog = new Dialog(config);
+        const dialog = new Dialog(Object.assign(config, {
+            type: 'confirm'
+        }));
         dialog.show();
         return dialog;
     }
@@ -85,7 +89,7 @@ export class Dialog {
                     <div className="dialog-content">{self.config.content}</div>
                     <div className="dialog-footer">
                         {
-                            self.config.mode === 'confirm' ? (
+                            self.config.type === 'confirm' ? (
                                 <>
                                     <span className="btn" onClick={self.handleClickCancel}>{cancelText}</span>
                                     <span className="btn" onClick={self.handleClickConfirm}>{confirmText}</span>
