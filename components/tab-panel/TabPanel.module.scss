@@ -1,6 +1,6 @@
 @import "../scss/index.scss";
 
-.tabSelector {
+.tabPanel {
   display: flex;
   flex: 1;
   flex-direction: row;
@@ -31,28 +31,10 @@
       }
     }
 
-    .sub-item-wrap {
+    .item-content-wrap {
       padding: 2rem 1.6rem;
       flex: 1;
       overflow: auto;
-
-      .item {
-        display: block;
-        height: 3rem;
-        line-height: 3rem;
-        background: #f2f2f2;
-        color: #a2a9b9;
-        font-size: 1.4rem;
-        text-align: center;
-        margin-bottom: 1rem;
-        border-radius: 1.5rem;
-        cursor: pointer;
-
-        &.active {
-          color: #fff;
-          background: $primary-color;
-        }
-      }
     }
   }
 }

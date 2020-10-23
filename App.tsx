@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
 import style from './App.module.scss';
-import { Button, Search, TabSelector, Dialog, Message } from './components';
+import { Button, Search, TabSelector, Dialog, Message, TabPanel } from './components';
 
 function App() {
 
@@ -40,6 +40,14 @@ function App() {
                     height: '25rem'
                 }}>
                     <TabSelector list={[{ code: 1, name: 2, children: [{ code: 2, name: '1' }] }]} />
+                </div>
+            </div>
+            <div className="component">
+                <h3>TabPanel</h3>
+                <div style={{
+                    height: '25rem'
+                }}>
+                    <TabPanel list={[{ code: 1, name: 2, content: 'abc' }]} />
                 </div>
             </div>
         </section>

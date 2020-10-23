@@ -3,13 +3,13 @@ import style from './TabSelector.module.scss';
 import cls from 'classnames';
 import { http } from '../common/http';
 import { ListModel } from '../common/model';
+import { Message } from '..';
 
 interface TabSelectorProps {
     url?: string;
     list?: TabSelectorModel[];
     activeParentCode?: any;
     activeChildCode?: any;
-    onSelect?: Function;
     allText?: any;
     parentPrefixOptions?: any[];
     childPrefixOptions?: any[];
@@ -37,29 +37,6 @@ function TabSelector(props: PropsWithChildren<TabSelectorProps>) {
 
     if (props.childPrefixOptions) {
         subList = [...props.childPrefixOptions, ...subList];
-    }
-
-    let title = '';
-
-    if (activeChildCode) {
-        const arr = subList.filter((item: ListModel) => {
-            return item.code === activeChildCode;
-        });
-
-        if (arr && arr.length > 0) {
-            title = arr[0].name;
-        }
-    } else {
-        const arr = list.filter((item: TabSelectorModel) => {
-            return item.code === activeParentCode;
-        });
-        if (arr && arr.length > 0) {
-            title = arr[0].name;
-        }
-    }
-
-    if (!activeParentCode && props.allText) {
-        title = props.allText;
     }
 
     const handleClickContent = useCallback((e) => {
@@ -91,7 +68,7 @@ function TabSelector(props: PropsWithChildren<TabSelectorProps>) {
                 })
                 .catch((err) => {
                     if (err && err.message) {
-                        console.log(err.message);
+                        Message.error(err.message);
                     }
                 });
         }
