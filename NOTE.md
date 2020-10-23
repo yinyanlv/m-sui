@@ -16,3 +16,6 @@ npm i prettier -D
 
 ## optimize-css-assets-webpack-plugin
 优化并压缩css文件，并解决重复导入的问题。当通过webpack配置文件的optimization.minimizer字段使用该插件时，必须在optimization.minimizer字段同时指定js压缩插件（如：terser-webpack-plugin），否则，webpack不再默认对js文件进行压缩
+
+## 使用forwardRef时，typescript报错：props.children属性不存在
+AProps extends React.HTMLProps<HTMLDivElement> 或者 AProps extends extends ComponentPropsWithoutRef<'div'> 

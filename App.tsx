@@ -1,9 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
 import style from './App.module.scss';
-import { Button, Search, TabSelector, Dialog, Message, TabPanel, NoData } from './components';
+import { Button, Search, TabSelector, Dialog, Message, TabPanel, NoData, PopupModal } from './components';
 
 function App() {
+
+    const popupRef: any = React.createRef();
 
     function showDialog() {
         const dialog = Dialog.confirm({
@@ -62,6 +64,16 @@ function App() {
                 <h3>NoData</h3>
                 <div>
                     <NoData/>
+                </div>
+            </div>
+            <div className="component">
+                <h3 onClick={() => {
+                    popupRef.current.show();
+                }}>PopupModal</h3>
+                <div>
+                    <PopupModal title="这里是标题" ref={popupRef}>
+                        这里是内容
+                    </PopupModal>
                 </div>
             </div>
         </section>
