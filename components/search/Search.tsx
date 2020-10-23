@@ -1,4 +1,4 @@
-import React, { forwardRef, useState, useCallback, useRef, useImperativeHandle, RefObject } from 'react';
+import React, { forwardRef, useState, useRef, useImperativeHandle, RefObject } from 'react';
 import style from './Search.module.scss';
 import { debounce } from '../common';
 
@@ -16,20 +16,20 @@ function Search(props: SearchProps, parentRef: RefObject<unknown>) {
     const [isShowSearchBtn, setIsShowSearchBtn] = useState(false);
     const debounceTime: number = props.debounceTime || 300;
 
-    const handleFocus = useCallback(() => {
+    function handleFocus() {
         setIsShowSearchBtn(true);
-    }, []);
+    }
 
-    const handleBlur = useCallback(() => {
+    function handleBlur() {
         const val = inputRef.current.value.trim();
         if (val !== '') {
             setIsShowSearchBtn(true);
         } else {
             setIsShowSearchBtn(false);
         }
-    }, []);
+    }
 
-    const doSearch = useCallback((e) => {
+    function doSearch(e) {
         const val = inputRef.current.value.trim();
 
         e.preventDefault();
@@ -47,14 +47,14 @@ function Search(props: SearchProps, parentRef: RefObject<unknown>) {
         }
 
         inputRef.current.blur();
-    }, [props.onSearch, props.checkEmpty, props.emptyErrorMessage]);
+    }
 
-    const handleChange = useCallback(debounce(() => {
+    const handleChange = debounce(() => {
         if (props.onChange) {
             const val = inputRef.current.value.trim();
             props.onChange(val);
         }
-    }, debounceTime), [props.onChange]);
+    }, debounceTime);
 
     useImperativeHandle(parentRef, () => {
         return {

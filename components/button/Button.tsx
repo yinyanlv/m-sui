@@ -7,10 +7,10 @@ interface ButtonProps {
 
 function Button(props: PropsWithChildren<ButtonProps>) {
 
-    const handleClick = useCallback((e: React.MouseEvent) => {
+    function handleClick(e: React.MouseEvent) {
         e.stopPropagation();
-        props.onClick && props.onClick();
-    }, [props.onClick]);
+        props.onClick?.();
+    }
 
     return (
         <div className={style.button} onClick={handleClick}>

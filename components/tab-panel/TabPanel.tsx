@@ -1,16 +1,16 @@
-import React, { useState, useCallback, PropsWithChildren, useEffect } from 'react';
+import React, { useState, PropsWithChildren, useEffect } from 'react';
 import style from './TabPanel.module.scss';
 import cls from 'classnames';
-import { http } from '../common/http';
-import { ListModel } from '../common/model';
+import { http, stopPropagation} from '../common';
 import { Message } from '..';
 
 interface TabPanelProps {
     url?: string;
     list?: TabPanelModel[];
     activeCode?: any;
-    onClickItem?: (code?: string | number, subCode?: string | number) => void;
-    render?: (params: TabPanelModel) => any; 
+    onClickItem?: (code?: string | number, item?: TabPanelModel) => void;
+    renderTab?: (params: TabPanelModel) => any;
+    renderContent?: (params: TabPanelModel | {[key: string]: any}) => any;
 }
 
 interface TabPanelModel {
@@ -22,10 +22,7 @@ interface TabPanelModel {
 function TabPanel(props: PropsWithChildren<TabPanelProps>) {
     const [activeCode, setActiveCode] = useState(props.activeCode);
     const [list, setList]: any = useState(props.list || []);
-
-    const handleClickContent = useCallback((e) => {
-        e.stopPropagation();
-    }, []);
+    const activeItem = getActiveItem();
 
     useEffect(() => {
         setActiveCode(props.activeCode);
@@ -36,7 +33,7 @@ function TabPanel(props: PropsWithChildren<TabPanelProps>) {
             http.get(props.url)
                 .then((res: any) => {
                     if (res) {
-                            setList(res);
+                        setList(res);
                     } else {
                         setList(res);
                     }
@@ -49,29 +46,41 @@ function TabPanel(props: PropsWithChildren<TabPanelProps>) {
         }
     }, [props.url]);
 
-    const handleClickItem = useCallback((code) => {
+
+    function handleClickItem(code, item) {
         if (activeCode !== code) {
             setActiveCode(code);
-            if (props.onClickItem) {
-                props.onClickItem(code);
-            }
+            props.onClickItem?.(code, item);
         }
-    }, [activeCode, props.onClickItem]);
+    }
+
+    function getActiveItem(): {[key:string]: any} | TabPanelModel {
+        const items = list.filter((item) => {
+
+            return item.code === activeCode;
+        });
+        
+        if (items?.length > 0) {
+            return items[0];
+        } else {
+            return {};
+        }
+    }
 
     return (
         <>
-            <div className={style.tabPanel} onClick={handleClickContent}>
+            <div className={style.tabPanel} onClick={stopPropagation}>
                 <div className={'item-wrap'}>
                     {
                         list && list.map((item: TabPanelModel) => {
                             return (
                                 <div className={cls('item', {
-                                    active: item.code === activeCode 
+                                    active: item.code === activeCode
                                 })}
                                     key={item.code}
-                                    onClick={handleClickItem.bind(null, item.code)}
+                                    onClick={handleClickItem.bind(null, item.code, item)}
                                 >
-                                    {item.name}
+                                    {props.renderTab ? props.renderTab(item) : item.name}
                                 </div>
                             )
                         })
@@ -79,13 +88,7 @@ function TabPanel(props: PropsWithChildren<TabPanelProps>) {
                 </div>
                 <div className={'item-content-wrap'}>
                     {
-                        list && list.filter((item: TabPanelModel) => {
-                            if (item.code === activeCode) {
-                                return  item.content;
-                            } else {
-                                return '';
-                            }
-                        })
+                        props.renderContent ?  props.renderContent(activeItem) : activeItem?.content
                     }
                 </div>
             </div>

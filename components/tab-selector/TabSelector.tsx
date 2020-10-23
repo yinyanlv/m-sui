@@ -1,8 +1,7 @@
-import React, { useState, useCallback, PropsWithChildren, useEffect } from 'react';
+import React, { useState, PropsWithChildren, useEffect } from 'react';
 import style from './TabSelector.module.scss';
 import cls from 'classnames';
-import { http } from '../common/http';
-import { ListModel } from '../common/model';
+import { ListModel, http, stopPropagation } from '../common';
 import { Message } from '..';
 
 interface TabSelectorProps {
@@ -39,10 +38,6 @@ function TabSelector(props: PropsWithChildren<TabSelectorProps>) {
         subList = [...props.childPrefixOptions, ...subList];
     }
 
-    const handleClickContent = useCallback((e) => {
-        e.stopPropagation();
-    }, []);
-
     useEffect(() => {
         setActiveParentCode(props.activeParentCode);
         setActiveChildCode(props.activeChildCode);
@@ -74,26 +69,22 @@ function TabSelector(props: PropsWithChildren<TabSelectorProps>) {
         }
     }, [props.url]);
 
-    const handleClickItem = useCallback((code) => {
+    function handleClickItem(code) {
         if (activeParentCode !== code) {
             setActiveParentCode(code);
             setActiveChildCode('');
-            if (props.onClickItem) {
-                props.onClickItem(code);
-            }
+            props.onClickItem?.(code);
         }
-    }, [activeParentCode, props.onClickItem]);
+    }
 
-    const handleClickSubItem = useCallback((code) => {
+    function  handleClickSubItem(code) {
         setActiveChildCode(code);
-        if (props.onClickItem) {
-            props.onClickItem(activeParentCode, code);
-        }
-    }, [activeParentCode, props.onClickItem]);
+        props.onClickItem?.(activeParentCode, code);
+    }
 
     return (
         <>
-            <div className={style.tabSelector} onClick={handleClickContent}>
+            <div className={style.tabSelector} onClick={stopPropagation}>
                 <div className={'item-wrap'}>
                     {
                         list && list.map((item: TabSelectorModel) => {

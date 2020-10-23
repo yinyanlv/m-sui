@@ -1,12 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
 import style from './App.module.scss';
-import { Button, Search, TabSelector, Dialog, Message, TabPanel } from './components';
+import { Button, Search, TabSelector, Dialog, Message, TabPanel, NoData } from './components';
 
 function App() {
 
     function showDialog() {
-
         const dialog = Dialog.confirm({
             content: '???',
             onClickCancel: () => {
@@ -47,7 +46,22 @@ function App() {
                 <div style={{
                     height: '25rem'
                 }}>
-                    <TabPanel list={[{ code: 1, name: 2, content: 'abc' }]} />
+                    <TabPanel
+                        activeCode="1"
+                        list={[{ code: 1, name: 2, content: 'abc' }]}
+                        renderTab={(item) => {
+                            return <div className="tab1">{item.name}</div>;
+                        }} 
+                        renderContent={(item) => {
+                            return <div className="tab1">{item.content}1111</div>;
+                        }} 
+                        />
+                </div>
+            </div>
+            <div className="component">
+                <h3>NoData</h3>
+                <div>
+                    <NoData/>
                 </div>
             </div>
         </section>
