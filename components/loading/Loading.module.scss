@@ -1,0 +1,74 @@
+@import "../scss/index.scss";
+
+.loading {
+    :global {
+        .inner-wrap {
+            padding: 2rem;
+
+            .icon-wrap {
+                display: block;
+                text-align: center;
+
+                i :local {
+                    display: inline-block;
+                    font-size: 2.2rem;
+                    color: $primary-color;
+                    animation: spin 1s linear infinite;
+                }
+            }
+
+            .text-wrap {
+                margin-top: 1rem;
+                display: block;
+                text-align: center;
+                font-size: 1.4rem;
+                color: $lighter-font-color;
+            }
+        }
+        .fixed {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            z-index: 1100;
+            background: transparent;
+
+            .inner-wrap {
+                position: fixed;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 10rem;
+                height: 10rem;
+                padding: 1rem;
+                border-radius: 0.8rem;
+                background: rgba(0, 0, 0, 0.65);
+                box-shadow: 0 0 1rem rgba(0, 0, 0, 0.65);
+                left: 50%;
+                top: 50%;
+                margin-left: -5rem;
+                margin-top: -5rem;
+                z-index: 1200;
+                flex-direction: column;
+
+                i {
+                    color: #fff;
+                }
+
+                .text-wrap {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

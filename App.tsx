@@ -1,11 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
 import style from './App.module.scss';
-import { Button, Search, TabSelector, Dialog, Message, TabPanel, NoData, PopupModal } from './components';
+import { Button, Search, TabSelector, Dialog, Message, TabPanel, NoData, PopupModal, Loading } from './components';
 
 function App() {
 
     const popupRef: any = React.createRef();
+    const loadingRef: any = React.createRef();
 
     function showDialog() {
         const dialog = Dialog.confirm({
@@ -74,6 +75,12 @@ function App() {
                     <PopupModal title="这里是标题" ref={popupRef}>
                         这里是内容
                     </PopupModal>
+                </div>
+            </div>
+            <div className="component">
+                <h3>Loading</h3>
+                <div>
+                    <Loading ref={loadingRef} text="加载中..." />
                 </div>
             </div>
         </section>

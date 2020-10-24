@@ -6,3 +6,4 @@ export * from './tab-selector';
 export * from './tab-panel';
 export * from './no-data';
 export * from './popup-modal';
+export * from './loading';

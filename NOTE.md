@@ -19,3 +19,9 @@ npm i prettier -D
 
 ## 使用forwardRef时，typescript报错：props.children属性不存在
 AProps extends React.HTMLProps<HTMLDivElement> 或者 AProps extends extends ComponentPropsWithoutRef<'div'> 
+
+## css module中，对@keyframes使用:global{}无效
+@keyframes :global(name) {}或动画使用之处:local{}
+
+## css动画无效
+display: inline-block; css动画对行内（inline）元素无效

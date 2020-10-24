@@ -5,7 +5,7 @@ import { addClass, removeClass } from '../common';
 interface PopupModalProps extends ComponentPropsWithoutRef<'div'> {
     title: string;
     onShow?: Function;
-    onClose?: Function;
+    onHide?: Function;
 }
 
 function Modal(props: PopupModalProps, parentRef) {
@@ -29,14 +29,14 @@ function Modal(props: PopupModalProps, parentRef) {
             hide: () => {
                 setIsShow(false);
                 recoverBody();
-                props.onClose?.();
+                props.onHide?.();
             }
         };
-    }, [props.onShow, props.onClose]);
+    }, [props.onShow, props.onHide]);
 
     function handleClickClose() {
         setIsShow(false);
-        props.onClose?.();
+        props.onHide?.();
         recoverBody();
     }
 
