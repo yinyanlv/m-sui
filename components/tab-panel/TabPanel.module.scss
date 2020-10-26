@@ -16,11 +16,11 @@
       overflow: auto;
 
       .item {
-        height: 4.4rem;
+        padding: 1rem 0;
+        line-height: 2.4rem;
         background: #f8f8f8;
         font-size: 1.4rem;
         text-align: center;
-        line-height: 4.4rem;
         border-left: 0.4rem solid #f8f8f8;
 
         &.active {

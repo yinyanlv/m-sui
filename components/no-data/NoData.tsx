@@ -9,7 +9,7 @@ function NoData(props: NoDataProps) {
     return (
         <div  className={styles.noData}>
             <div className={'image-wrap'}>
-                <img src={'../../public/images/no_data.png'} alt={props.text}/>
+                <img src={require('../../public/images/no_data.png').default} alt={props.text}/>
             </div>
             <div className={'text'}>{props.text || '暂无数据'}</div>
         </div>
