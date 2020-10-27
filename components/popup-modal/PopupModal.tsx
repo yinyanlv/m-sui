@@ -1,6 +1,6 @@
-import React, { useState, useImperativeHandle, forwardRef, ComponentPropsWithoutRef } from 'react';
+import React, { useState, useImperativeHandle, forwardRef, ComponentPropsWithoutRef, useEffect } from 'react';
 import style from './PopupModal.module.scss';
-import { addClass, removeClass } from '../common';
+import { addClass, removeClass, stopPropagation } from '../common';
 
 interface PopupModalProps extends ComponentPropsWithoutRef<'div'> {
     title: string;
@@ -34,6 +34,12 @@ function Modal(props: PopupModalProps, parentRef) {
         };
     }, [props.onShow, props.onHide]);
 
+    useEffect(() => {
+        return () => {
+            recoverBody();
+        };
+    }, []);
+
     function handleClickClose() {
         setIsShow(false);
         props.onHide?.();
@@ -55,7 +61,7 @@ function Modal(props: PopupModalProps, parentRef) {
                 isShow && (
                     <>
                         <div className={'modal-bg'} onClick={handleClickClose}>
-                            <div className={'modal'}>
+                            <div className={'modal'} onClick={stopPropagation}>
                                 <div className={'modal-title'}>
                                     <span className={'title'}>{props.title}</span>
                                     <span className={'btn'} onClick={handleClickClose}>关闭</span>

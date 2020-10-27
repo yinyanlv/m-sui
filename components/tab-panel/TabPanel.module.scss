@@ -3,14 +3,46 @@
 .tabPanel {
   display: flex;
   flex: 1;
-  flex-direction: row;
+  flex-direction: column;
   color: $font-color;
   background: #fff;
   width: 100%;
   height: 100%;
 
   :global {
-    .item-wrap {
+    .header-wrap {
+      height: 3.4rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      color: $font-color;
+
+      div {
+        font-weight: bold;
+        padding: 0 1.5rem;
+        height: 100%;
+        line-height: 3.4rem;
+      }
+
+      div:first-child {
+        background: #f8f8f8;
+        width: 11rem;
+      }
+
+      div:last-child {
+        flex: 1;
+      }
+    }
+
+    .content-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      overflow: hidden;
+    }
+
+    .item-list {
       width: 11rem;
       background: #f8f8f8;
       overflow: auto;
@@ -32,7 +64,6 @@
     }
 
     .item-content-wrap {
-      padding: 2rem 1.6rem;
       flex: 1;
       overflow: auto;
     }
