@@ -1,5 +1,5 @@
 import React, { forwardRef, useImperativeHandle, useState } from 'react';
-import style from './Loading.module.scss';
+import style from './Loading.scss';
 import cls from 'classnames';
 import { stopPropagation } from '../common';
 

@@ -1,11 +1,13 @@
+@import "../scss/index.scss";
+
 .button {
     display: block;
-    width: 200px;
-    height: 40px;
-    line-height: 40px;
-    background:#529bea;
+    height: 4.8rem;
+    line-height: 4.8rem;
+    background: $primary-color;
     color: #fff;
     text-align: center;
-    font-size: 14px;
+    font-size: 1.6rem;
     cursor: pointer;
+    flex: 1;
 }

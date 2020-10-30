@@ -1,5 +1,5 @@
 import React, { forwardRef, useState, useRef, useImperativeHandle, RefObject } from 'react';
-import style from './Search.module.scss';
+import style from './Search.scss';
 import { debounce } from '../common';
 
 interface SearchProps {

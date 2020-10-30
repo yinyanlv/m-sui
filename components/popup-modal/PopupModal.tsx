@@ -1,5 +1,5 @@
 import React, { useState, useImperativeHandle, forwardRef, ComponentPropsWithoutRef, useEffect } from 'react';
-import style from './PopupModal.module.scss';
+import style from './PopupModal.scss';
 import { addClass, removeClass, stopPropagation } from '../common';
 
 interface PopupModalProps extends ComponentPropsWithoutRef<'div'> {

@@ -1,5 +1,5 @@
 import React, { useState, PropsWithChildren, useEffect } from 'react';
-import style from './TabSelector.module.scss';
+import style from './TabSelector.scss';
 import cls from 'classnames';
 import { ListModel, http, stopPropagation } from '../common';
 import { Message } from '..';

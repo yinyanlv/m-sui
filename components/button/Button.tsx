@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react';
-import style from './Button.module.scss';
+import style from './Button.scss';
 
 interface ButtonProps {
     onClick?: Function;

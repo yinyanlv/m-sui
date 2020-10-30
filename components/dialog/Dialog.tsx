@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM, { unmountComponentAtNode } from 'react-dom';
-import style from './Dialog.module.scss';
+import style from './Dialog.scss';
 import { stopPropagation } from '../common';
 
 interface DialogConfig {

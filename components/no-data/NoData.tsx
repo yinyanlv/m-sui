@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './NoData.module.scss';
+import styles from './NoData.scss';
 
 interface NoDataProps {
     text?: string;

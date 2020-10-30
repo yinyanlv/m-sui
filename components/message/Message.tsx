@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM, { unmountComponentAtNode } from 'react-dom';
 import animate from '@ant-design/css-animation';
-import style from './Message.module.scss';
+import style from './Message.scss';
 
 interface MessageConfig {
     time?: number; // 毫秒

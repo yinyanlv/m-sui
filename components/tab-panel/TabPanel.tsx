@@ -1,5 +1,5 @@
 import React, { useState, PropsWithChildren, useEffect } from 'react';
-import style from './TabPanel.module.scss';
+import style from './TabPanel.scss';
 import cls from 'classnames';
 import { http, stopPropagation } from '../common';
 import { Message } from '..';
