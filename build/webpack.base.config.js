@@ -1,17 +1,20 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const config = require('../config');
 
 
 module.exports = {
-    entry: './index.tsx',
+    entry: '../index.tsx',
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        // publicPath: '/assets/',  // 当配置过该属性后，打包文件中所有通过相对路径引用的资源都会被配置的路径所替换
-        library: 'm-sui',
+        path: config.build.outputPath,
+        publicPath: config.build.publicPath,  // 当配置过该属性后，打包文件中所有通过相对路径引用的资源都会被配置的路径所替换
         libraryTarget: 'umd'
     },
     resolve: {  // 配置import导入
-        extensions: ['.js', '.jsx', '.ts', '.tsx']
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.md'],
+        alias: {
+            '@': path.join(__dirname, '..') 
+        }
     },
     module: {
         rules: [

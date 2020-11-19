@@ -1,4 +1,4 @@
-const baseConfig = require('./webpack.config');
+const baseConfig = require('./webpack.base.config');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 

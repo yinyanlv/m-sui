@@ -1,15 +1,15 @@
-const baseConfig = require('./webpack.config');
+const baseConfig = require('./webpack.base.config');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
 module.exports = Object.assign({}, baseConfig, {
     mode: 'development',
-    entry: './App.tsx',
+    entry: '../App.tsx',
     plugins: [
         ...baseConfig.plugins,
         new HtmlWebpackPlugin({
             title: 'm-sui',
-            template: './public/index.html'
+            template: '../public/index.html'
         })
     ]
 });
