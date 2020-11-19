@@ -1,11 +1,12 @@
 const path = require('path');
 
 module.exports = {
+    moduleName: 'mb-sui',
     build: {
         env: {
             NODE_ENV: 'production'
         },
-        outputPath: path.resolve(__dirname, '../dist'),
+        outputRootPath: path.resolve(__dirname, '../dist'),
         publicPath: '/' 
     },
     dev: {

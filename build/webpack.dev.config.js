@@ -8,7 +8,7 @@ module.exports = Object.assign({}, baseConfig, {
     plugins: [
         ...baseConfig.plugins,
         new HtmlWebpackPlugin({
-            title: 'm-sui',
+            title: 'mb-sui',
             template: '../public/index.html'
         })
     ]

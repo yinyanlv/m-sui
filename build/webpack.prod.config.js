@@ -1,10 +1,21 @@
+const path = require('path');
 const baseConfig = require('./webpack.base.config');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-
+const { getComponentsEntry } = require('./utils');
+const config = require('../config');
 
 module.exports = Object.assign({}, baseConfig, {
     mode: 'production',
-    entry: './index.ts',
+    entry: getComponentsEntry(),
+    optimization: {
+        minimize: false,
+    },
+    output: {
+        path: path.join(config.build.outputRootPath, 'lib'),
+        filename: '[name].js',
+        chunkFilename: '[id].[chunkhash].js',
+        libraryTarget: 'commonjs2'
+    },
     externals: {  // 不属于内部的库, 外部的
         react: {
             commonjs: 'react',

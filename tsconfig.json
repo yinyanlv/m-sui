@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "outDir": "dist", // 指定输出目录
+        "outDir": "dist/typings", // 指定输出目录
         "declaration": true, // 生成声明文件，开启后会自动生成声明文件
         "baseUrl": "", // 解析非相对模块的基地址，默认是当前目录
         "module": "esnext", // 生成代码的模板标准
@@ -22,7 +22,7 @@
         "noUnusedLocals": false // 检查只声明、未使用的局部变量
     },
     "includes": [
-        "lib/**/*"
+        "components/**/*"
     ],
     "exclude": [
         "node_modules",
