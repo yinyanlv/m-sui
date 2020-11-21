@@ -8,19 +8,19 @@ exports.isProd = function() {
 
 exports.getComponentsEntry = function() {
     const entry = {};
-    const cmpsFilename = 'mb-sui.common';
+    const cmpsFilename = 'mb-sui.compact';
     const pattern = path.join(__dirname, '../components/**/index.ts');
     try {
         console.log(chalk.green('Begin scan components...'));
         glob.sync(pattern).forEach((filePath) => {
             if (filePath.indexOf('components/index.ts') >= 0)  {
                 entry[cmpsFilename] = filePath;
-                console.log(chalk.green(`Get file ${cmpsFilename}: ${filePath}`))
+                console.log(chalk.yellow(`Get file ${cmpsFilename}: ${filePath}`))
             } else {
                 const pathArr = filePath.split('/');
                 const key = pathArr[pathArr.length - 2];
                 entry[key] = filePath;
-                console.log(chalk.green(`Get file ${key}: ${filePath}`))
+                console.log(chalk.yellow(`Get file ${key}: ${filePath}`))
             }
         });
         console.log(chalk.green('Scan components success!'));

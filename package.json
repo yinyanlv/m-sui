@@ -7,7 +7,8 @@
   "typings": "dist/typings/index.d.ts",
   "scripts": {
     "dev": "cross-env webpack-dev-server --config ./build/webpack.dev.config.js",
-    "build:prod": "cross-env webpack --config ./build/webpack.prod.config.js",
+    "build:es": "cross-env tsc",
+    "build:lib": "cross-env webpack --config ./build/webpack.lib.config.js",
     "build:umd": "cross-env webpack --config ./build/webpack.umd.config.js",
     "test": "jest --config=jest.config.js",
     "prepublishOnly": "npm run build"
