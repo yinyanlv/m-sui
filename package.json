@@ -7,11 +7,12 @@
   "typings": "dist/typings/index.d.ts",
   "scripts": {
     "dev": "cross-env webpack-dev-server --config ./build/webpack.dev.config.js",
-    "build:es": "cross-env tsc && copyfiles ./components/**/*.scss ./dist/es/",
-    "build:lib": "cross-env webpack --config ./build/webpack.lib.config.js",
-    "build:umd": "cross-env webpack --config ./build/webpack.umd.config.js",
+    "build:es": "cross-env NODE_ENV=production tsc && copyfiles ./components/**/*.scss ./dist/es/",
+    "build:lib": "cross-env NODE_ENV=production webpack --config ./build/webpack.lib.config.js",
+    "build:umd": "cross-env NODE_ENV=production webpack --config ./build/webpack.umd.config.js",
+    "build:all": "npm run build:es && npm run build:lib && npm run build:umd",
     "test": "jest --config=jest.config.js",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build:all"
   },
   "repository": {
     "type": "git",
