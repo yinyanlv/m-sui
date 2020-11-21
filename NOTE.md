@@ -25,3 +25,5 @@ AProps extends React.HTMLProps<HTMLDivElement> 或者 AProps extends extends Com
 
 ## css动画无效
 display: inline-block; css动画对行内（inline）元素无效
+
+## 使用MiniCssExtractPlugin.loader后，不能使用sourceMap。使用sass-loader，sourceMap仍旧可以使用

@@ -1,15 +1,16 @@
+const path = require('path');
 const baseConfig = require('./webpack.base.config');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
 module.exports = Object.assign({}, baseConfig, {
     mode: 'development',
-    entry: '../App.tsx',
+    entry: path.resolve(__dirname, '../App.tsx'),
     plugins: [
         ...baseConfig.plugins,
         new HtmlWebpackPlugin({
             title: 'mb-sui',
-            template: '../public/index.html'
+            template: path.resolve(__dirname, '../public/index.html')
         })
     ]
 });

@@ -1,6 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const {isProd} = require('./utils');
+const { isProd } = require('./utils');
 const config = require('../config');
 
 module.exports = {
@@ -14,7 +14,7 @@ module.exports = {
     resolve: {  // 配置import导入
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.md'],
         alias: {
-            '@': path.join(__dirname, '..') 
+            '@': path.join(__dirname, '..')
         }
     },
     module: {
@@ -26,16 +26,19 @@ module.exports = {
             {
                 test: /\.s[ca]ss$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    isProd() ? MiniCssExtractPlugin.loader : 'style-loader',
                     {
                         loader: 'css-loader',
                         options: {
                             modules: {
                                 localIdentName: '[name]_[local]__[hash:base64:5]'
-                            }
+                            },
+                            sourceMap: isProd() ? false : true
                         }
                     },
-                    'sass-loader'
+                    {
+                        loader: 'sass-loader'
+                    }
                 ]
             },
             {
