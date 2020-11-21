@@ -1,24 +1,23 @@
-$primary-color: #485CC7;
+$prefix: 'sui';
 
-$header-bg-color: #232427;
+$primary-color: #485CC7 !default;
 
-$font-color: #313131;
-$lighter-font-color: #4A4A4A;
-$lightest-font-color: #A7A7A7;
+$font-color: #313131 !default;
+$lighter-font-color: #4A4A4A !default;
+$lightest-font-color: #A7A7A7 !default;
 
-$icon-color: #A2A9B9;
+$icon-color: #A2A9B9 !default;
 
-$placeholder-font-color: #919191;
-$input-font-color: #000;
+$placeholder-font-color: #919191 !default;
+$input-font-color: #000 !default;
 
+$bd-color: #e0e0e0 !default;
+$lighter-bd-color: #f4f4f4 !default;
 
-$bd-color: #e0e0e0;
-$lighter-bd-color: #f4f4f4;
+$bg-color: #e7e7e7 !default;
+$body-bg-color: #f5f5f5 !default;
 
-$bg-color: #e7e7e7;
-$body-bg-color: #f5f5f5;
+$box-shadow-color: #ddd !default;
 
-$box-shadow-color: #ddd;
-
-$header-height: 4.4rem;
-$tabs-bar-height: 4rem;
+$header-height: 4.4rem !default;
+$tabs-bar-height: 4rem !default;

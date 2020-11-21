@@ -37,7 +37,10 @@ module.exports = {
                         }
                     },
                     {
-                        loader: 'sass-loader'
+                        loader: 'sass-loader',
+                        options: {
+                            additionalData: '$primary-color: #485CC7;'
+                        }
                     }
                 ]
             },

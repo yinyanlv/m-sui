@@ -27,3 +27,16 @@ AProps extends React.HTMLProps<HTMLDivElement> 或者 AProps extends extends Com
 display: inline-block; css动画对行内（inline）元素无效
 
 ## 使用MiniCssExtractPlugin.loader后，不能使用sourceMap。使用sass-loader，sourceMap仍旧可以使用
+
+## 通过sass-loader设置全局变量（也可使用sass-vars-loader）。默认情况下，内部scss文件的定义变量会覆盖sass-loader中预定义的同名变量，可通过在内部scss文件中使用!default使得sass-loader定义的变量优先级更高
+``` javascript
+    {
+      loader: 'sass-loader',
+      options: {
+        // 你也可以从一个文件读取，例如 `variables.scss`
+        // 如果 sass-loader 版本 = 8，这里使用 `prependData` 字段
+        // 如果 sass-loader 版本 < 8，这里使用 `data` 字段
+        additionalData: `$color: red;`
+      }
+    }
+```
