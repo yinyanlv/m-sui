@@ -1,6 +1,7 @@
 import React, { forwardRef, useState, useRef, useImperativeHandle, RefObject } from 'react';
-import style from './Search.scss';
+import './Search.scss';
 import { debounce } from '../common';
+import { useConfig } from '../hooks';
 
 interface SearchProps {
     placeholder: string;
@@ -13,6 +14,7 @@ interface SearchProps {
 
 function Search(props: SearchProps, parentRef: RefObject<unknown>) {
     const inputRef: any = useRef();
+    const {prefixCls} = useConfig();
     const [isShowSearchBtn, setIsShowSearchBtn] = useState(false);
     const debounceTime: number = props.debounceTime || 300;
 
@@ -71,7 +73,7 @@ function Search(props: SearchProps, parentRef: RefObject<unknown>) {
     }, []);
 
     return (
-        <div className={style.search}>
+        <div className={`${prefixCls}search`}>
             <div className={'input-wrap'}>
                 <form action={'/'} onSubmit={doSearch}>
                     <input type="search" autoComplete={'off'} onFocus={handleFocus} onBlur={handleBlur} ref={inputRef} onChange={handleChange} />

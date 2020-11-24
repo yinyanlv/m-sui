@@ -1,59 +1,57 @@
 @import "../scss/index.scss";
 
-.search {
+.#{$prefixCls}search {
     width: 100%;
     height: 5rem;
     background: #f2f4f6;
     padding: 0.9rem 1.6rem;
 
-    :global {
-        .input-wrap {
-            width: 100%;
-            height: 3.2rem;
-            position: relative;
-        }
+    .input-wrap {
+        width: 100%;
+        height: 3.2rem;
+        position: relative;
+    }
 
-        input {
-            height: 3.2rem;
-            display: block;
-            width: 100%;
-            padding: 0.6rem 4rem 0.6rem 2rem;
-            font-size: 1.4rem;
-            color: $font-color;
-            line-height: 2rem;
-            border-radius: 0.4rem;
-            border: none;
-        }
+    input {
+        height: 3.2rem;
+        display: block;
+        width: 100%;
+        padding: 0.6rem 4rem 0.6rem 2rem;
+        font-size: 1.4rem;
+        color: $font-color;
+        line-height: 2rem;
+        border-radius: 0.4rem;
+        border: none;
+    }
 
-        .placeholder {
+    .placeholder {
+        color: #cdd2d9;
+        font-size: 1.4rem;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+
+        i {
+            font-size: 1.6rem;
+            margin-right: 1rem;
+        }
+    }
+
+    .btn {
+        display: inline-block;
+        height: 3.2rem;
+        line-height: 3.2rem;
+        width: 4rem;
+        text-align: center;
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        .iconfont {
             color: #cdd2d9;
-            font-size: 1.4rem;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-
-            i {
-                font-size: 1.6rem;
-                margin-right: 1rem;
-            }
-        }
-
-        .btn {
-            display: inline-block;
-            height: 3.2rem;
-            line-height: 3.2rem;
-            width: 4rem;
-            text-align: center;
-            position: absolute;
-            right: 0;
-            top: 0;
-
-            .iconfont {
-                color: #cdd2d9;
-                font-size: 1.6rem;
-            }
+            font-size: 1.6rem;
         }
     }
 }

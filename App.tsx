@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
-import style from './App.scss';
+import './App.scss';
 import { Button, Search, TabSelector, Dialog, Message, TabPanel, NoData, PopupModal, Loading } from './components';
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
     }
 
     return (
-        <section className={style.app}>
+        <section className={'app'}>
             <div className="component">
                 <h3>Button</h3>
                 <div>

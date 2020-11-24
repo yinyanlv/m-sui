@@ -1,9 +1,9 @@
 const path = require('path');
 const baseConfig = require('./webpack.base.config');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const { getComponentsEntry, isProd } = require('./utils');
+const { getComponentsEntry } = require('./utils');
 const config = require('../config');
-console.log(isProd())
+
 module.exports = Object.assign({}, baseConfig, {
     mode: 'production',
     entry: getComponentsEntry(),

@@ -7,7 +7,6 @@ interface ConfigProviderProps {
 type ConfigModel = typeof defaultConfig; 
 
 const defaultConfig = {
-    prefixCls: 'sui-' 
 }
 
 const configContext = React.createContext<ConfigModel>(defaultConfig);

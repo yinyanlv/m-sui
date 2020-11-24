@@ -2,6 +2,9 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { isProd } = require('./utils');
 const config = require('../config');
+const webpack = require('webpack');
+
+const prefixCls = 'sui-';
 
 module.exports = {
     entry: '../index.tsx',
@@ -39,7 +42,7 @@ module.exports = {
                     {
                         loader: 'sass-loader',
                         options: {
-                            additionalData: '$primary-color: #485CC7;'
+                            additionalData: `$prefixCls: '${prefixCls}';`
                         }
                     }
                 ]
@@ -54,14 +57,17 @@ module.exports = {
             {
                 test: /\.(png|jpe?g|gif)$/,  // 打包css和js文件中通过路径引用的图片，js文件中需要使用require('xxx').default
                 loader: 'url-loader?limit=8192&name=assets/images/[name].[hash:8].[ext]'
-            },
-            {
-                test: /\.html$/,  // 打包html文件中图片
-                loader: 'html-withimg-loader?limit=8192&name=assets/images/[name].[hash:8].[ext]'
             }
         ]
     },
-    plugins: [
+    plugins: isProd() ? [
+        new webpack.DefinePlugin({
+            PREFIX_CLS: JSON.stringify(prefixCls) 
+        }),
         new MiniCssExtractPlugin()
+    ] : [
+        new webpack.DefinePlugin({
+            PREFIX_CLS: JSON.stringify(prefixCls) 
+        })
     ]
 };

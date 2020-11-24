@@ -1,8 +1,9 @@
 import React, { useState, PropsWithChildren, useEffect } from 'react';
-import style from './TabPanel.scss';
+import './TabPanel.scss';
 import cls from 'classnames';
 import { http, stopPropagation } from '../common';
 import { Message } from '..';
+import { useConfig } from '../hooks';
 
 interface TabPanelProps {
     url?: string;
@@ -24,6 +25,7 @@ function TabPanel(props: PropsWithChildren<TabPanelProps>) {
     const [activeCode, setActiveCode] = useState(props.activeCode);
     const [list, setList]: any = useState(props.list || []);
     const activeItem = getActiveItem();
+    const {prefixCls} = useConfig();
 
     useEffect(() => {
         setList(props.list);
@@ -74,7 +76,7 @@ function TabPanel(props: PropsWithChildren<TabPanelProps>) {
 
     return (
         <>
-            <div className={style.tabPanel} onClick={stopPropagation}>
+            <div className={`${prefixCls}tab-panel`} onClick={stopPropagation}>
                 {
                     props.title && (
                         <div className="header-wrap">

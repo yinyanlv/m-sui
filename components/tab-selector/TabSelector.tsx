@@ -1,8 +1,9 @@
 import React, { useState, PropsWithChildren, useEffect } from 'react';
-import style from './TabSelector.scss';
+import './TabSelector.scss';
 import cls from 'classnames';
 import { ListModel, http, stopPropagation } from '../common';
 import { Message } from '..';
+import { useConfig } from '../hooks';
 
 interface TabSelectorProps {
     url?: string;
@@ -24,6 +25,7 @@ function TabSelector(props: PropsWithChildren<TabSelectorProps>) {
     const [activeChildCode, setActiveChildCode] = useState(props.activeChildCode);
     const [list, setList]: any = useState(props.list || []);
     let subList: any = [];
+    const {prefixCls} = useConfig();
 
     if (activeParentCode) {
         let temp = list.filter((item: TabSelectorModel) => {
@@ -84,7 +86,7 @@ function TabSelector(props: PropsWithChildren<TabSelectorProps>) {
 
     return (
         <>
-            <div className={style.tabSelector} onClick={stopPropagation}>
+            <div className={`${prefixCls}tab-selector`} onClick={stopPropagation}>
                 <div className={'item-wrap'}>
                     {
                         list && list.map((item: TabSelectorModel) => {

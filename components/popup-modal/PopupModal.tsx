@@ -1,6 +1,7 @@
 import React, { useState, useImperativeHandle, forwardRef, ComponentPropsWithoutRef, useEffect } from 'react';
-import style from './PopupModal.scss';
+import './PopupModal.scss';
 import { addClass, removeClass, stopPropagation } from '../common';
+import { useConfig } from '../hooks';
 
 interface PopupModalProps extends ComponentPropsWithoutRef<'div'> {
     title: string;
@@ -12,7 +13,8 @@ function Modal(props: PopupModalProps, parentRef) {
     const [isShow, setIsShow] = useState(false);
     const [curBodyScrollTop, setCurBodyScrollTop] = useState<any>();
     const [curTop, setCurTop] = useState<any>();
-    const bodyCls = 'sui-modal-opened';
+    const {prefixCls} = useConfig();
+    const bodyCls = `${prefixCls}modal-opened`;
 
     useImperativeHandle(parentRef, () => {
         return {
@@ -56,7 +58,7 @@ function Modal(props: PopupModalProps, parentRef) {
     }
 
     return (
-        <div className={style.popupModal}>
+        <div className={`${prefixCls}popup-modal`}>
             {
                 isShow && (
                     <>

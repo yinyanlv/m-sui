@@ -40,3 +40,5 @@ display: inline-block; css动画对行内（inline）元素无效
       }
     }
 ```
+
+## 当webpack.DefinePlugin搭配typescript使用时，需在typings文件中声明全局变量（如：PREFIX_CLS），否则，ts报错

@@ -1,60 +1,58 @@
 @import "../scss/index.scss";
 
-.message {
-    :global {
-        .content {
-            width: 34rem;
-            height: 5rem;
-            line-height: 5rem;
-            text-align: center;
-            position: fixed;
-            left: 50%;
-            top: 10rem;
-            transform: translate(-50%, -50%);
-            font-size: 1.4rem;
-            color: $font-color;
-            background: #fff;
-            border-radius: 0.4rem;
-            box-shadow: 0 0 1.5rem $icon-color;
-            z-index: 1100;
-            transition: all 0.3s ease-in-out;
+.#{$prefixCls}message {
+    .content {
+        width: 34rem;
+        height: 5rem;
+        line-height: 5rem;
+        text-align: center;
+        position: fixed;
+        left: 50%;
+        top: 10rem;
+        transform: translate(-50%, -50%);
+        font-size: 1.4rem;
+        color: $font-color;
+        background: #fff;
+        border-radius: 0.4rem;
+        box-shadow: 0 0 1.5rem $icon-color;
+        z-index: 1100;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .enter {
+        top: 8rem;
+        opacity: 0;
+    }
+
+    .enter-active {
+        opacity: 1;
+        top: 10rem;
+    }
+
+    .leave-active {
+        opacity: 0;
+        top: 8rem;
+    }
+
+    i {
+        font-size: 2.2rem;
+        margin-right: 0.8rem;
+        vertical-align: middle;
+
+        &.success {
+            color: #7ed321;
         }
 
-        .enter {
-            top: 8rem;
-            opacity: 0;
+        &.error {
+            color: #fe5a5a;
         }
 
-        .enter-active {
-            opacity: 1;
-            top: 10rem;
+        &.warn {
+            color: #fea548;
         }
 
-        .leave-active {
-            opacity: 0;
-            top: 8rem;
-        }
-
-        i {
-            font-size: 2.2rem;
-            margin-right: 0.8rem;
-            vertical-align: middle;
-
-            &.success {
-                color: #7ed321;
-            }
-
-            &.error {
-                color: #fe5a5a;
-            }
-
-            &.warn {
-                color: #fea548;
-            }
-
-            &.info {
-                color: $primary-color;
-            }
+        &.info {
+            color: $primary-color;
         }
     }
 }

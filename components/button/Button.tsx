@@ -1,11 +1,13 @@
 import React, { PropsWithChildren } from 'react';
 import './Button.scss';
+import { useConfig } from '../hooks';
 
 interface ButtonProps {
     onClick?: Function;
 }
 
 function Button(props: PropsWithChildren<ButtonProps>) {
+    const {prefixCls} = useConfig();
 
     function handleClick(e: React.MouseEvent) {
         e.stopPropagation();
@@ -13,7 +15,7 @@ function Button(props: PropsWithChildren<ButtonProps>) {
     }
 
     return (
-        <div className={'sui-button'} onClick={handleClick}>
+        <div className={`${prefixCls}button`} onClick={handleClick}>
             {
                 props.children
             }

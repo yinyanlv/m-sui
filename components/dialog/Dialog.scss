@@ -1,65 +1,61 @@
 @import "../scss/index.scss";
 
-.dialog {
+.#{$prefixCls}dialog {
     position: fixed;
     top: 0;
-    left:0;
+    left: 0;
     bottom: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(0,0,0,.65);
+    background: rgba(0, 0, 0, 0.65);
 
-    :global {
+    .dialog-box {
+        background: #fff;
+        border-radius: 0.6rem;
+        width: 32rem;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
 
-        .dialog-box{
-            background: #fff;
-            border-radius: .6rem;
-            width: 32rem;
-            position: absolute;
-            left: 50%;
-            top:50%;
-            transform: translate(-50%, -50%);
-        }
+    .dialog-header {
+        height: 6.4rem;
+        text-align: center;
+        font-size: 1.8rem;
+        line-height: 6.4rem;
+    }
 
-        .dialog-header {
-            height: 6.4rem;
-            text-align: center;
-            font-size: 1.8rem;
+    .dialog-content {
+        padding: 2rem;
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+    }
+
+    .dialog-footer {
+        height: 6.5rem;
+        border-top: 0.1rem solid $bd-color;
+        display: flex;
+        flex-direction: flow;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.8rem;
+
+        .btn {
+            cursor: pointer;
+            display: inline-block;
+            flex: 1;
+            height: 100%;
             line-height: 6.4rem;
-        }
+            text-align: center;
 
-        .dialog-content {
-            padding: 2rem;
-            font-size: 1.6rem;
-            line-height: 2.4rem;
-        }
+            &:first-child {
+                color: $lighter-font-color;
+            }
 
-        .dialog-footer {
-            height: 6.5rem;
-            border-top:.1rem solid $bd-color;
-            display: flex;
-            flex-direction: flow;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 1.8rem;
-
-            .btn {
-                cursor: pointer;
-                display: inline-block;
-                flex: 1;
-                height: 100%;
-                line-height: 6.4rem;
-                text-align: center;
-
-                &:first-child {
-                    color: $lighter-font-color;
-                }
-
-                &:last-child {
-                    color: $primary-color!important;
-                }
+            &:last-child {
+                color: $primary-color !important;
             }
         }
-
     }
 }

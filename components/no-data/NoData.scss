@@ -1,26 +1,23 @@
 @import "../scss/index.scss";
 
-.noData {
+.#{$prefixCls}no-data {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1.5rem;
   flex-direction: column;
 
-  :global {
+  .image-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-    .image-wrap {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .text {
-      text-align: center;
-      margin-top: 1rem;
-      color: #A2A9B9;
-      font-size: 1.2rem;
-      line-height: 1.8rem;
-    }
+  .text {
+    text-align: center;
+    margin-top: 1rem;
+    color: #a2a9b9;
+    font-size: 1.2rem;
+    line-height: 1.8rem;
   }
 }

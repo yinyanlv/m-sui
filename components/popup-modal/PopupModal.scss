@@ -1,58 +1,53 @@
 @import "../scss/index.scss";
 
-.popupModal {
-    :global {
-        .modal-bg {
-            position: fixed;
-            z-index: 1000;
-            background: rgba(0, 0, 0, 0.65);
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-        }
+.#{$prefixCls}popup-modal {
+    .modal-bg {
+        position: fixed;
+        z-index: 1000;
+        background: rgba(0, 0, 0, 0.65);
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
 
-        .modal {
-            background: #fff;
-            position: fixed;
+    .modal {
+        background: #fff;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        z-index: 1100;
+
+        .modal-title {
+            height: 4.1rem;
             width: 100%;
-            bottom: 0;
-            z-index: 1100;
+            padding: 0 0 0 1.6rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 0.1rem solid #f2f4f6;
 
-            .modal-title {
-                height: 4.1rem;
-                width: 100%;
-                padding: 0 0 0 1.6rem;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                border-bottom: 0.1rem solid #f2f4f6;
+            .title {
+                color: $font-color;
+                font-size: 1.5rem;
+                font-weight: bold;
+            }
 
-                .title {
-                    color: $font-color;
-                    font-size: 1.5rem;
-                    font-weight: bold;
-                }
-
-                .btn {
-                    display: inline-block;
-                    line-height: 4rem;
-                    height: 100%;
-                    padding: 0 1.6rem;
-                    color: $primary-color;
-                    font-size: 1.5rem;
-                }
+            .btn {
+                display: inline-block;
+                line-height: 4rem;
+                height: 100%;
+                padding: 0 1.6rem;
+                color: $primary-color;
+                font-size: 1.5rem;
             }
         }
     }
 }
 
-
-:global {
-    body.sui-modal-opened{
-        position: fixed;
-        width: 100vw;
-        height: 100vh;
-        overflow: hidden;
-    }
+body.#{$prefixCls}modal-opened {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 }

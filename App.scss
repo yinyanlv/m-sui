@@ -1,17 +1,17 @@
-@import "./components/scss/var";
+@import "./components/scss/common";
 
+html {
+    font-size: 10px;
+}
 .app {
     background: #fff;
 
-    :global {
+    .component {
+        padding: 1rem;
 
-        .component {
-            padding: 1rem;
-
-            h3 {
-                padding: 0 1rem;
-                margin-bottom: 1rem;
-            }
+        h3 {
+            padding: 0 1rem;
+            margin-bottom: 1rem;
         }
     }
 }

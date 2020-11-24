@@ -1,7 +1,8 @@
 import React, { forwardRef, useImperativeHandle, useState } from 'react';
-import style from './Loading.scss';
+import './Loading.scss';
 import cls from 'classnames';
 import { stopPropagation } from '../common';
+import { useConfig } from '../hooks';
 
 interface LoadingProps {
     mode?: 'static' | 'fixed';
@@ -11,6 +12,7 @@ interface LoadingProps {
 
 function Loading(props: LoadingProps, parentRef) {
     const [isShow, setIsShow] = useState(!props.isHide);
+    const config = useConfig();
 
     useImperativeHandle(parentRef, () => {
         return {
@@ -25,7 +27,7 @@ function Loading(props: LoadingProps, parentRef) {
 
     return (
         isShow ? (
-            <div className={style.loading}>
+            <div className={`${config.prefixCls}loading`}>
                 <div className={cls({
                     'fixed': props.mode === 'fixed'
                 })} onClick={stopPropagation}>
