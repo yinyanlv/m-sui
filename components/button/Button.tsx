@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react';
-import style from './Button.scss';
+import './Button.scss';
 
 interface ButtonProps {
     onClick?: Function;
@@ -13,7 +13,7 @@ function Button(props: PropsWithChildren<ButtonProps>) {
     }
 
     return (
-        <div className={style.button} onClick={handleClick}>
+        <div className={'sui-button'} onClick={handleClick}>
             {
                 props.children
             }
