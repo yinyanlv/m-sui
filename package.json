@@ -1,6 +1,6 @@
 {
   "name": "mb-sui",
-  "version": "0.0.10",
+  "version": "1.0.1",
   "description": "mobile ui",
   "main": "dist/lib/mb-sui.common.js",
   "module": "index.ts",
