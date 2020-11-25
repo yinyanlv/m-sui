@@ -4,10 +4,10 @@
         "declaration": true, 
         "declarationDir": "dist/typings",
         "baseUrl": "", 
-        "module": "es2015",
+        "module": "esnext",
         "target": "es2015",
         "lib": [
-            "es2015",
+            "es6",
             "dom"
         ], 
         "sourceMap": true, 
@@ -28,6 +28,10 @@
     "exclude": [
         "node_modules",
         "build",
+        "config",
+        "public",
+        "site",
+        "test",
         "dist",
         "**/__tests__"
     ]

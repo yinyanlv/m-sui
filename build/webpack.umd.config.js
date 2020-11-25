@@ -1,6 +1,7 @@
 const path = require('path');
 const baseConfig = require('./webpack.base.config');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const config = require('../config');
 
 module.exports = Object.assign({}, baseConfig, {
@@ -28,6 +29,7 @@ module.exports = Object.assign({}, baseConfig, {
         }
     },
     plugins: [
+        new CleanWebpackPlugin(),
         ...baseConfig.plugins,
         new OptimizeCSSAssetsPlugin({
             assetNameRegExp: /\.css$/g,
