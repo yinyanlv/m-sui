@@ -1,5 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const { isProd } = require('./utils');
 const config = require('../config');
 const webpack = require('webpack');
@@ -24,7 +25,12 @@ module.exports = {
         rules: [
             {
                 test: /\.tsx?$/,
-                loader: 'ts-loader'
+                use: [{
+                    loader: 'ts-loader',
+                    options: {
+                        configFile: path.resolve(__dirname, '../tsconfig.json')
+                    }
+                }]
             },
             {
                 test: /\.s[ca]ss$/,
@@ -61,11 +67,13 @@ module.exports = {
         ]
     },
     plugins: isProd() ? [
+        new CleanWebpackPlugin(),
         new webpack.DefinePlugin({
             PREFIX_CLS: JSON.stringify(prefixCls) 
         }),
         new MiniCssExtractPlugin()
     ] : [
+        new CleanWebpackPlugin(),
         new webpack.DefinePlugin({
             PREFIX_CLS: JSON.stringify(prefixCls) 
         })

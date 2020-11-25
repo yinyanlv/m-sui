@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
 import './App.scss';
-import { Button, Search, TabSelector, Dialog, Message, TabPanel, NoData, PopupModal, Loading } from './components';
+import { Button, Search, TabSelector, Dialog, Message, TabPanel, NoData, PopupModal, Loading } from '../components';
 
 function App() {
 

@@ -42,3 +42,9 @@ display: inline-block; css动画对行内（inline）元素无效
 ```
 
 ## 当webpack.DefinePlugin搭配typescript使用时，需在typings文件中声明全局变量（如：PREFIX_CLS），否则，ts报错
+
+## 直接使用tsc编译生成js文件时，不会拷贝非js文件
+"build:es": "cross-env NODE_ENV=production tsc && copyfiles ./components/**/*.scss ./public/images/* ./dist/es/"
+
+## 使用webpack编译ts生成js文件时，tsconfig.json中的outDir配置无效、declarationDir配置有效
+ts-loader会自动引用项目根目录下的tsConfig.json配置

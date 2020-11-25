@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = Object.assign({}, baseConfig, {
     mode: 'development',
-    entry: path.resolve(__dirname, '../App.tsx'),
+    entry: path.resolve(__dirname, '../site/App.tsx'),
     plugins: [
         ...baseConfig.plugins,
         new HtmlWebpackPlugin({
