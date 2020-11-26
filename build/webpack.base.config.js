@@ -47,7 +47,7 @@ module.exports = {
                     {
                         loader: 'sass-loader',
                         options: {
-                            additionalData: `$prefixCls: '${prefixCls}';`
+                            additionalData: `$prefix-cls: '${prefixCls}';`
                         }
                     }
                 ]

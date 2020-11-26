@@ -48,3 +48,13 @@ display: inline-block; css动画对行内（inline）元素无效
 
 ## 使用webpack编译ts生成js文件时，tsconfig.json中的outDir配置无效、declarationDir配置有效
 ts-loader会自动引用项目根目录下的tsConfig.json配置
+
+## 定义在不同scss文件中的同名变量，不同时引用时，不会相互污染
+
+## 在ts文件中直接引用scss文件，优缺点
+```
+优点：
+1、逻辑一致，样式和组件紧密的结合在一起
+缺点：
+1、打包不够灵活，想通过配置选择引用scss或css文件时，需通过插件更改ts源码中的引用的样式文件，如果ts文件中同时引用scss和css文件，处理逻辑很复杂
+```

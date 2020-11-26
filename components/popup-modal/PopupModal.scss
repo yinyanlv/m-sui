@@ -1,6 +1,6 @@
 @import "../scss/index.scss";
 
-.#{$prefixCls}popup-modal {
+.#{$prefix-cls}popup-modal {
     .modal-bg {
         position: fixed;
         z-index: 1000;
@@ -45,7 +45,7 @@
     }
 }
 
-body.#{$prefixCls}modal-opened {
+body.#{$prefix-cls}modal-opened {
     position: fixed;
     width: 100vw;
     height: 100vh;

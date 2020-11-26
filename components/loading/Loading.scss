@@ -1,6 +1,6 @@
 @import "../scss/index.scss";
 
-.#{$prefixCls}loading {
+.#{$prefix-cls}loading {
     .inner-wrap {
         padding: 2rem;
 
@@ -12,7 +12,7 @@
                 display: inline-block;
                 font-size: 2.2rem;
                 color: $primary-color;
-                animation: #{$prefixCls}spin 1s linear infinite;
+                animation: #{$prefix-cls}spin 1s linear infinite;
             }
         }
 
@@ -62,7 +62,7 @@
     }
 }
 
-@keyframes #{$prefixCls}spin {
+@keyframes #{$prefix-cls}spin {
     from {
         transform: rotate(0);
     }
