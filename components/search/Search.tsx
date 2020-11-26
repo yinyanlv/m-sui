@@ -1,7 +1,7 @@
 import React, { forwardRef, useState, useRef, useImperativeHandle, RefObject } from 'react';
 import './Search.scss';
 import { debounce } from '../common';
-import { useConfig } from '../hooks';
+import { useUtils } from '../hooks';
 
 interface SearchProps {
     placeholder: string;
@@ -14,7 +14,7 @@ interface SearchProps {
 
 function Search(props: SearchProps, parentRef: RefObject<unknown>) {
     const inputRef: any = useRef();
-    const {prefixCls} = useConfig();
+    const {prefixCls} = useUtils();
     const [isShowSearchBtn, setIsShowSearchBtn] = useState(false);
     const debounceTime: number = props.debounceTime || 300;
 

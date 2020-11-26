@@ -1,13 +1,13 @@
 import React, { PropsWithChildren } from 'react';
 import './Button.scss';
-import { useConfig } from '../hooks';
+import { useUtils } from '../hooks';
 
 interface ButtonProps {
     onClick?: Function;
 }
 
 function Button(props: PropsWithChildren<ButtonProps>) {
-    const {prefixCls} = useConfig();
+    const {prefixCls} = useUtils();
 
     function handleClick(e: React.MouseEvent) {
         e.stopPropagation();

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM, { unmountComponentAtNode } from 'react-dom';
 import './Dialog.scss';
 import { stopPropagation } from '../common';
-import { useConfig } from '../hooks';
+import { useUtils } from '../hooks';
 
 interface DialogConfig {
     type?: 'alert' | 'confirm';
@@ -18,7 +18,7 @@ export class Dialog {
     private $node: HTMLElement;
     private config: DialogConfig;
     private isShowed: boolean;
-    private uiConfig = useConfig();
+    private utils = useUtils();
 
     static alert(config: DialogConfig) {
         const dialog = new Dialog(Object.assign(config, {
@@ -84,7 +84,7 @@ export class Dialog {
         const confirmText = this.config.confirmBtnText || '确认';
 
         return (
-            <div className={`${this.uiConfig.prefixCls}dialog`} onClick={self.handleClickDialogBg} id="abc">
+            <div className={`${this.utils.prefixCls}dialog`} onClick={self.handleClickDialogBg} id="abc">
                 <div className="dialog-box" onClick={stopPropagation}>
                     <div className="dialog-header">{title}</div>
                     <div className="dialog-content">{self.config.content}</div>

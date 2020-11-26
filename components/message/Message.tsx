@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM, { unmountComponentAtNode } from 'react-dom';
 import animate from '@ant-design/css-animation';
 import './Message.scss';
-import { useConfig } from '../hooks';
+import { useUtils } from '../hooks';
 
 interface MessageConfig {
     time?: number; // 毫秒
@@ -16,7 +16,7 @@ export class Message {
     private config: MessageConfig;
     private timerId: number;
     private messageId: string;
-    private uiConfig = useConfig();
+    private utils = useUtils();
 
     static info(msg: string, time: number = 2000) {
         const message = new Message({
@@ -88,7 +88,7 @@ export class Message {
     getMessage(): React.ReactElement {
 
         return (
-            <div className={`${this.uiConfig.prefixCls}message`}>
+            <div className={`${this.utils.prefixCls}message`}>
                 <div className="content opacity" id={this.messageId}>
                     <i className={this.getIconClass()} />
                     {this.config.message}

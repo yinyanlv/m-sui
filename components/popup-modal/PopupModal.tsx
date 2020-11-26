@@ -1,7 +1,7 @@
 import React, { useState, useImperativeHandle, forwardRef, ComponentPropsWithoutRef, useEffect } from 'react';
 import './PopupModal.scss';
 import { addClass, removeClass, stopPropagation } from '../common';
-import { useConfig } from '../hooks';
+import { useUtils } from '../hooks';
 
 interface PopupModalProps extends ComponentPropsWithoutRef<'div'> {
     title: string;
@@ -13,7 +13,7 @@ function Modal(props: PopupModalProps, parentRef) {
     const [isShow, setIsShow] = useState(false);
     const [curBodyScrollTop, setCurBodyScrollTop] = useState<any>();
     const [curTop, setCurTop] = useState<any>();
-    const {prefixCls} = useConfig();
+    const {prefixCls} = useUtils();
     const bodyCls = `${prefixCls}modal-opened`;
 
     useImperativeHandle(parentRef, () => {

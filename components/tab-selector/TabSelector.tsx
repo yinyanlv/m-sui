@@ -3,7 +3,7 @@ import './TabSelector.scss';
 import cls from 'classnames';
 import { ListModel, http, stopPropagation } from '../common';
 import { Message } from '..';
-import { useConfig } from '../hooks';
+import { useUtils } from '../hooks';
 
 interface TabSelectorProps {
     url?: string;
@@ -25,7 +25,7 @@ function TabSelector(props: PropsWithChildren<TabSelectorProps>) {
     const [activeChildCode, setActiveChildCode] = useState(props.activeChildCode);
     const [list, setList]: any = useState(props.list || []);
     let subList: any = [];
-    const {prefixCls} = useConfig();
+    const {prefixCls} = useUtils();
 
     if (activeParentCode) {
         let temp = list.filter((item: TabSelectorModel) => {

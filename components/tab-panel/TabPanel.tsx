@@ -3,7 +3,7 @@ import './TabPanel.scss';
 import cls from 'classnames';
 import { http, stopPropagation } from '../common';
 import { Message } from '..';
-import { useConfig } from '../hooks';
+import { useUtils } from '../hooks';
 
 interface TabPanelProps {
     url?: string;
@@ -25,7 +25,7 @@ function TabPanel(props: PropsWithChildren<TabPanelProps>) {
     const [activeCode, setActiveCode] = useState(props.activeCode);
     const [list, setList]: any = useState(props.list || []);
     const activeItem = getActiveItem();
-    const {prefixCls} = useConfig();
+    const {prefixCls} = useUtils();
 
     useEffect(() => {
         setList(props.list);

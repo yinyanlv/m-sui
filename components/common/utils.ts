@@ -38,3 +38,10 @@ export function removeClass(node: HTMLElement, cls: string): void {
     }
 }
 
+export function getImage(url: string) {
+    if (url) {
+        return `../../public/images/${url}`;
+    } else {
+        return '';
+    }
+}
