@@ -53,13 +53,21 @@ module.exports = {
             {
                 test: /\.(svg|ttf|eot|woff)$/,
                 loader: 'file-loader',
-                query: {
+                options: {
                     name: 'assets/fonts/[name].[hash:8].[ext]'
                 }
             },
             {
                 test: /\.(png|jpe?g|gif|ico)$/,  // 打包css和js文件中通过路径引用的图片，js文件中需要使用require('xxx').default
-                loader: 'url-loader?limit=5120&name=assets/images/[name].[hash:8].[ext]'
+                loader: 'url-loader',
+                options: {
+                    limit: 5120,
+                    name: 'assets/images/[name].[hash:8].[ext]'
+                }
+            },
+            {
+                test: /\.(htm|html)$/i,
+                loader: 'html-loader'
             }
         ]
     },
