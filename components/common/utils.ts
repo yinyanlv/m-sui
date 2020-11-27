@@ -40,7 +40,9 @@ export function removeClass(node: HTMLElement, cls: string): void {
 
 export function getImage(url: string) {
     if (url) {
-        return `../../public/images/${url}`;
+        const mod = require(`../../public/images/${url}`);
+        // fix: url-loader v4 and url-loader-v2
+        return mod.default ? mod.default : mod;
     } else {
         return '';
     }

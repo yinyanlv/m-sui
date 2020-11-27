@@ -2,6 +2,7 @@ const path = require('path');
 
 module.exports = {
     moduleName: 'mb-sui',
+    prefixCls: 'sui-',
     build: {
         env: {
             NODE_ENV: 'production'

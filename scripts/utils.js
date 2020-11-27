@@ -8,7 +8,7 @@ exports.isProd = function() {
 
 exports.getComponentsEntry = function() {
     const entry = {};
-    const cmpsFilename = 'mb-sui.compact';
+    const cmpsFilename = 'mb-sui.pack';
     const pattern = path.join(__dirname, '../components/**/index.ts');
     try {
         console.log(chalk.green('Begin scan components...'));
@@ -31,3 +31,7 @@ exports.getComponentsEntry = function() {
         throw new Error(err.message);
     }
 };
+
+exports.getRealPath = function(p) {
+    return path.resolve(__dirname, p);
+}

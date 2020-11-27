@@ -4,8 +4,6 @@ const { isProd } = require('./utils');
 const config = require('../config');
 const webpack = require('webpack');
 
-const prefixCls = 'sui-';
-
 module.exports = {
     entry: '../index.tsx',
     output: {
@@ -47,7 +45,7 @@ module.exports = {
                     {
                         loader: 'sass-loader',
                         options: {
-                            additionalData: `$prefix-cls: '${prefixCls}';`
+                            additionalData: `$prefix-cls: '${config.prefixCls}';`
                         }
                     }
                 ]
@@ -61,18 +59,18 @@ module.exports = {
             },
             {
                 test: /\.(png|jpe?g|gif|ico)$/,  // 打包css和js文件中通过路径引用的图片，js文件中需要使用require('xxx').default
-                loader: 'url-loader?limit=8192&name=assets/images/[name].[hash:8].[ext]'
+                loader: 'url-loader?limit=5120&name=assets/images/[name].[hash:8].[ext]'
             }
         ]
     },
     plugins: isProd() ? [
         new webpack.DefinePlugin({
-            PREFIX_CLS: JSON.stringify(prefixCls) 
+            PREFIX_CLS: JSON.stringify(config.prefixCls) 
         }),
         new MiniCssExtractPlugin()
     ] : [
         new webpack.DefinePlugin({
-            PREFIX_CLS: JSON.stringify(prefixCls) 
+            PREFIX_CLS: JSON.stringify(config.prefixCls) 
         })
     ]
 };

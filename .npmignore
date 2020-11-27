@@ -1,0 +1,15 @@
+components/
+config/
+coverage/
+docs/
+public/
+scripts/
+site/
+test/
+typings/
+
+babel.config.js
+index.ts
+jest.config.js
+NOTE.md
+tsconfig.json
