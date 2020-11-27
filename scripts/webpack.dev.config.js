@@ -10,6 +10,7 @@ module.exports = Object.assign({}, baseConfig, {
         ...baseConfig.plugins,
         new HtmlWebpackPlugin({
             title: 'mb-sui',
+            filename: 'index.html',
             template: path.resolve(__dirname, '../public/index.html')
         })
     ]

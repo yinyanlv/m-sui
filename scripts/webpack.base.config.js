@@ -64,21 +64,17 @@ module.exports = {
                     limit: 5120,
                     name: 'assets/images/[name].[hash:8].[ext]'
                 }
-            },
-            {
-                test: /\.(htm|html)$/i,
-                loader: 'html-loader'
             }
         ]
     },
     plugins: isProd() ? [
         new webpack.DefinePlugin({
-            PREFIX_CLS: JSON.stringify(config.prefixCls) 
+            PREFIX_CLS: JSON.stringify(config.prefixCls)
         }),
         new MiniCssExtractPlugin()
     ] : [
-        new webpack.DefinePlugin({
-            PREFIX_CLS: JSON.stringify(config.prefixCls) 
-        })
-    ]
+            new webpack.DefinePlugin({
+                PREFIX_CLS: JSON.stringify(config.prefixCls)
+            })
+        ]
 };
