@@ -15,7 +15,7 @@ npm i prettier -D
 将css抽取为单独的css文件，否则会将css一起打包到js文件中
 
 ## optimize-css-assets-webpack-plugin
-优化并压缩css文件，并解决重复导入的问题。当通过webpack配置文件的optimization.minimizer字段使用该插件时，必须在optimization.minimizer字段同时指定js压缩插件（如：terser-webpack-plugin），否则，webpack不再默认对js文件进行压缩
+优化并压缩css文件，并解决重复导入的问题。当通过webpack配置文件的optimization.minimizer字段使用该插件时，必须在optimization.minimizer字段同时指定js压缩插件（如：terser-webpack-plugin，uglifyjs-webpack-plugin（已存档）），否则，webpack不再默认对js文件进行压缩
 
 ## 使用forwardRef时，typescript报错：props.children属性不存在
 AProps extends React.HTMLProps<HTMLDivElement> 或者 AProps extends extends ComponentPropsWithoutRef<'div'> 
@@ -68,3 +68,6 @@ ts-loader会自动引用项目根目录下的tsConfig.json配置
 
 ## html-webpack-plugin与html-loader冲突，index.html中的<%= ... %>被转义为普通字符串，失去ejs的能力
 放弃html-loader，使用<img src="<%= require('./images/a.png').default %>"/>导入图片
+
+## autoprefix
+npm install --save-dev postcss-loader postcss autoprefix

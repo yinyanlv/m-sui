@@ -5,7 +5,6 @@ const config = require('../config');
 const webpack = require('webpack');
 
 module.exports = {
-    entry: '../index.tsx',
     output: {
         path: config.build.outputRootPath,
         publicPath: isProd() ? config.build.publicPath : config.dev.publicPath,  // 当配置过该属性后，打包文件中所有通过相对路径引用的资源都会被配置的路径所替换
@@ -40,6 +39,18 @@ module.exports = {
                             //     localIdentName: '[name]_[local]__[hash:base64:5]'
                             // },
                             sourceMap: isProd() ? false : true
+                        }
+                    },
+                    {
+                        loader: "postcss-loader",
+                        options: {
+                            postcssOptions: {
+                                plugins: [
+                                    [
+                                        "autoprefixer"
+                                    ]
+                                ]
+                            }
                         }
                     },
                     {
